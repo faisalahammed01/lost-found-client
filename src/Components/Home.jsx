@@ -1,5 +1,6 @@
 import React from "react";
 import ExtraPartOne from "../Page/ExtraPartOne";
+import ExtraPartTwo from "../Page/ExtraPartTwo";
 
 const Home = () => {
   return (
@@ -67,6 +68,8 @@ const Home = () => {
 
       {/* Extra-part-1 */}
       <ExtraPartOne></ExtraPartOne>
+      {/* Extra-part-two */}
+      <ExtraPartTwo></ExtraPartTwo>
     </div>
   );
 };

@@ -22,7 +22,7 @@ const Nav = () => {
         <div>
           <img
             className="size-14"
-            src="https://i.ibb.co.com/hZj2Z83/found-logo.png"
+            src="https://i.ibb.co.com/W0GhLtS/found-logo-removebg-preview.png"
             alt=""
           />
         </div>

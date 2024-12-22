@@ -40,7 +40,7 @@ const ExtraPartOne = () => {
         <div className="w-3/6">
           <img
             className="w-full h-56"
-            src="https://i.ibb.co.com/fv0YVZc/Lost-Luggage-at-Hotel-Solutions-for-Quick-Recovery-12-22-2024-02-23-PM-optimized-250.png"
+            src="https://i.ibb.co.com/RDfJNWm/istockphoto-1730149969-612x612.jpg"
             alt=""
           />
         </div>
