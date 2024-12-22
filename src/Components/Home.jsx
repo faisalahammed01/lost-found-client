@@ -1,4 +1,5 @@
 import React from "react";
+import ExtraPartOne from "../Page/ExtraPartOne";
 
 const Home = () => {
   return (
@@ -63,6 +64,9 @@ const Home = () => {
         </div>
       </div>
       {/* Slider END */}
+
+      {/* Extra-part-1 */}
+      <ExtraPartOne></ExtraPartOne>
     </div>
   );
 };
