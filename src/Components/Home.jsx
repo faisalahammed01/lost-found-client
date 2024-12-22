@@ -9,7 +9,7 @@ const Home = () => {
       <div className="carousel w-full h-96 ">
         <div id="slide1" className="carousel-item relative w-full max-h-96">
           <img
-            src="https://i.ibb.co.com/2F5p9h1/DALL-E-2024-12-22-03-23-54-A-creative-and-professional-banner-for-a-Lost-and-Found-website-featuring.webp"
+            src="https://i.ibb.co.com/2hbwRyW/lost-found-banner-Image-2024-12-23-at-00-22-59-bfc6e644.jpg"
             className="w-full image-full"
           />
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -23,7 +23,7 @@ const Home = () => {
         </div>
         <div id="slide2" className="carousel-item relative w-full ">
           <img
-            src="https://i.ibb.co.com/PYtrPCp/pexels-karolina-grabowska-4386176.jpg"
+            src="https://i.ibb.co.com/XSs2Sqm/DALL-E-2024-12-23-00-04-32-A-visually-appealing-website-banner-for-a-Lost-and-Found-platform-with-a.webp"
             className="w-full image-full"
           />
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -37,7 +37,7 @@ const Home = () => {
         </div>
         <div id="slide3" className="carousel-item relative w-full">
           <img
-            src="https://i.ibb.co.com/3fwK31s/DALL-E-2024-12-04-05-16-28-A-beautiful-and-professional-banner-image-for-a-crowdfunding-medical-expe.webp"
+            src="https://i.ibb.co.com/DRgLvjM/lost-found-Image-2024-12-23-at-00-23-00-f798524b.jpg"
             className="w-full image-full"
           />
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -51,7 +51,7 @@ const Home = () => {
         </div>
         <div id="slide4" className="carousel-item relative w-full">
           <img
-            src="https://i.ibb.co.com/xC6mPGj/DALL-E-2024-12-04-05-18-25-A-visually-stunning-banner-image-for-a-crowdfunding-medical-expenses-webs.webp"
+            src="https://i.ibb.co.com/2F5p9h1/DALL-E-2024-12-22-03-23-54-A-creative-and-professional-banner-for-a-Lost-and-Found-website-featuring.webp"
             className="w-full image-full"
           />
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">

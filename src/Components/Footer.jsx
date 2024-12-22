@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer bg-[#7AACB9] text-neutral-content p-10">
+    <footer className="footer bg-[#8CBDCE] text-neutral-content p-10 border-y-2 border-black">
       <aside>
         <div>
           <img
@@ -9,7 +9,7 @@ const Footer = () => {
             alt=""
           />
         </div>
-        <p className="text-white">
+        <p className="text-black text-xl">
           Find What You’ve Lost, Share What You’ve Found.
           <br />
           Your Trusted{" "}

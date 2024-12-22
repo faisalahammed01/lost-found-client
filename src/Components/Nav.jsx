@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Nav = () => {
   const link = (
@@ -27,7 +27,7 @@ const Nav = () => {
           />
         </div>
         <a className="font-bold ">
-          Lost <span className="text-blue-500">&</span> Found{" "}
+          Lost <span className="text-[#415B74]">&</span> Found{" "}
         </a>
         <div className="flex flex-1 justify-center items-center space-x-4 whitespace-nowrap">
           {link}
@@ -55,7 +55,9 @@ const Nav = () => {
             {links}
           </ul>
         </div>
-        <div className="font-bold">Login</div>
+        <div className="font-bold btn btn-outline hover:bg-[#415B74]">
+          <Link to="/login">Login</Link>
+        </div>
       </div>
     </div>
   );
