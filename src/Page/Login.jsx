@@ -48,10 +48,11 @@ const Login = () => {
               <div className="btn btn-outline mt-4">
                 Signin With Google<FcGoogle className="size-8"></FcGoogle>
               </div>
+
               <p className="text-start mt-4">
-                You Have No Account?{" "}
+                Don't have an account?{" "}
                 <Link className="text-red-600" to="/register">
-                  Register
+                  Register Now!
                 </Link>
               </p>
             </div>
