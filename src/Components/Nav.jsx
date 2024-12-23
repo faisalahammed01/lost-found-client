@@ -55,9 +55,13 @@ const Nav = () => {
             {links}
           </ul>
         </div>
-        <div className="font-bold btn btn-outline hover:bg-[#415B74]">
-          <Link to="/login">Login</Link>
-        </div>
+
+        <Link
+          className="font-bold btn btn-outline hover:bg-[#415B74]"
+          to="/login"
+        >
+          Login
+        </Link>
       </div>
     </div>
   );
