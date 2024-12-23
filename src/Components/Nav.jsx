@@ -1,6 +1,19 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import AuthContext from "../Context/AuthContext/AuthContext";
 
 const Nav = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        console.log("successful sign out");
+      })
+      .catch((error) => {
+        console.log("failed to sign out .stay here. dont leave me alone");
+      });
+  };
   const link = (
     <>
       <NavLink className="hover:text-blue-600" to="/">
@@ -55,18 +68,22 @@ const Nav = () => {
             {links}
           </ul>
         </div>
-
-        <Link
-          className="font-bold btn btn-outline hover:bg-[#415B74]"
-          to="/login"
-        >
-          Login
-        </Link>
+        {user ? (
+          <>
+            <button onClick={handleSignOut} className="btn">
+              Sign out
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/login">
+              <button className="btn btn-outline">LogIn</button>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
 };
 
 export default Nav;
-
-//

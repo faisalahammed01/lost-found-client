@@ -1,10 +1,13 @@
 import Lottie from "lottie-react";
+import React, { useContext } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import swal from "sweetalert";
 import registerLottieData from "../assets/Lottie/register - 1734901651450.json";
 import { Link } from "react-router-dom";
+import AuthContext from "../Context/AuthContext/AuthContext";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -19,9 +22,21 @@ const Register = () => {
       );
       return;
     }
-    console.log(email, password, name, photoUrl);
-    swal("Registration successful!");
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        swal("Registration successful!");
+        result.user.updateProfile({
+          displayName: name,
+          photoURL: photoUrl,
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
+
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
