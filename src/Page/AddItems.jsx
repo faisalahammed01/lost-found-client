@@ -1,3 +1,48 @@
+import swal from "sweetalert2";
+const handleAdd = (e) => {
+  e.preventDefault();
+
+  const PostType = e.target.PostType.value;
+  const Title = e.target.Title.value;
+  const Category = e.target.Category.value;
+  const Thumbnail = e.target.Thumbnail.value;
+  const description = e.target.description.value;
+  const location = e.target.location.value;
+  const Contact = e.target.Contact.value;
+  const Date = e.target.Date.value;
+
+  const newData = {
+    PostType,
+    Title,
+    Category,
+    Thumbnail,
+    description,
+    location,
+    Contact,
+    Date,
+  };
+
+  // send data to the server and database
+  fetch("http://localhost:5000/addItems", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(newData),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.insertedId) {
+        swal.fire({
+          title: "Success!",
+          text: "Campaign added successfully",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+        e.target.reset();
+      }
+    });
+};
 const AddItems = () => {
   return (
     <div className="lg:w-3/4 mx-auto">
@@ -9,16 +54,20 @@ const AddItems = () => {
         </p>
       </div>
       <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
-        <form className="card-body">
+        <form onSubmit={handleAdd} className="card-body">
           {/* form first row */}
           <div className="flex flex-col lg:flex-row gap-5">
             <div className="form-control flex-1">
-              <select className="select select-info w-full max-w-xs mt-10">
-                <option disabled selected>
-                  Post Type
+              <select
+                name="PostType"
+                required
+                className="select select-info w-full max-w-xs mt-10"
+              >
+                <option value="" disabled>
+                  Select Post Type
                 </option>
-                <option>Lost</option>
-                <option>Found</option>
+                <option value="Lost">Lost</option>
+                <option value="Found">Found</option>
               </select>
             </div>
             <div className="form-control flex-1">
@@ -42,8 +91,8 @@ const AddItems = () => {
               </label>
               <input
                 type="url"
-                name="Thumbnail "
-                placeholder="Image Upload"
+                name="Thumbnail"
+                placeholder="Image url"
                 className="input input-bordered"
                 required
               />
@@ -80,8 +129,8 @@ const AddItems = () => {
                 <span className="label-text">Location</span>
               </label>
               <input
-                type="Location"
-                name="title"
+                type="text"
+                name="location"
                 placeholder="Location where the item was lost or found"
                 className="input input-bordered"
                 required
@@ -96,7 +145,7 @@ const AddItems = () => {
               </label>
               <input
                 type="text"
-                name="Contact Information"
+                name="Contact"
                 placeholder="user details"
                 className="input input-bordered"
                 required
