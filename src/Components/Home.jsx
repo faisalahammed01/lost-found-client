@@ -1,12 +1,15 @@
 import React from "react";
 import ExtraPartOne from "../Page/ExtraPartOne";
 import ExtraPartTwo from "../Page/ExtraPartTwo";
+import LatestCard from "./LatestCard";
+import { useLoaderData } from "react-router-dom";
 
 const Home = () => {
+  const cards = useLoaderData();
   return (
     <div>
       {/* slider start */}
-      <div className="carousel w-full h-96 ">
+      <div className="carousel w-full h-96">
         <div id="slide1" className="carousel-item relative w-full max-h-96">
           <img
             src="https://i.ibb.co.com/2hbwRyW/lost-found-banner-Image-2024-12-23-at-00-22-59-bfc6e644.jpg"
@@ -64,6 +67,20 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <section>
+        <h1 className="text-2xl font-bold text-center my-4">
+          {cards.length === 0
+            ? "Not Find & Lost Items Available"
+            : `Latest Find & Lost Items-${cards.length}`}
+        </h1>
+        <div className="divider divider-accent mx-auto w-40"></div>
+
+        <div className="my-7 container mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+          {cards.map((card) => (
+            <LatestCard card={card} key={card._id}></LatestCard>
+          ))}
+        </div>
+      </section>
       {/* Slider END */}
 
       {/* Extra-part-1 */}

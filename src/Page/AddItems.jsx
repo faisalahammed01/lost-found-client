@@ -35,7 +35,7 @@ const handleAdd = (e) => {
       if (data.insertedId) {
         swal.fire({
           title: "Success!",
-          text: "Campaign added successfully",
+          text: "Items added successfully",
           icon: "success",
           confirmButtonText: "Ok",
         });

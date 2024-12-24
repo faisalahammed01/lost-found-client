@@ -6,23 +6,14 @@ const LostAndFound = () => {
   return (
     <div>
       <h1 className="text-center font-bold text-xl text-gray-600">
-        {" "}
-        All Item-{Items.length}
+        Lost-And-Found Item-{Items.length}
       </h1>
       <div className="divider divider-neutral mx-auto w-40"></div>
-      {/* PostType,
-    Title,
-    Category,
-    Thumbnail,
-    description,
-    location,
-    Contact,
-    Date, */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 mx-auto">
         {Items.map((Item) => (
           <div
             key={Item._id}
-            className="card w-64 md:w-96 shadow-xl rounded-none max-h-[450px] mb-5"
+            className="card w-64 md:w-96 shadow rounded-none max-h-[450px] mb-5"
           >
             <figure>
               <img
