@@ -77,7 +77,7 @@ const Login = () => {
               </p>
             </div>
           </form>
-          <div className="mb-3">
+          <div className="mb-3 ml-4">
             {" "}
             <SocialLogin />
           </div>

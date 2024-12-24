@@ -8,6 +8,11 @@ import Home from "./Components/Home";
 import Login from "./Page/Login";
 import Register from "./Page/Register";
 import AuthProvider from "./Context/AuthContext/AuthProvider";
+import LostAndFound from "./Page/LostAndFound";
+import MyItems from "./Page/MyItems";
+import AllRecoveredItems from "./Page/AllRecoveredItems";
+import AddItems from "./Page/AddItems";
+import PrivatesRoute from "./Route/PrivatesRoute";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +23,34 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/LostAndFound",
+        element: <LostAndFound></LostAndFound>,
+      },
+      {
+        path: "/MyItems",
+        element: (
+          <PrivatesRoute>
+            <MyItems></MyItems>,
+          </PrivatesRoute>
+        ),
+      },
+      {
+        path: "/AllItems",
+        element: (
+          <PrivatesRoute>
+            <AllRecoveredItems></AllRecoveredItems>,
+          </PrivatesRoute>
+        ),
+      },
+      {
+        path: "/AddItems",
+        element: (
+          <PrivatesRoute>
+            <AddItems></AddItems>,
+          </PrivatesRoute>
+        ),
       },
       {
         path: "login",

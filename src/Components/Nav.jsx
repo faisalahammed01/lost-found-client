@@ -19,14 +19,22 @@ const Nav = () => {
       <NavLink className="hover:text-blue-600" to="/">
         Home
       </NavLink>
-      <NavLink className="hover:text-blue-600 ">Lost & Found Items</NavLink>
+      <NavLink className="hover:text-blue-600 " to="/LostAndFound">
+        Lost & Found Items
+      </NavLink>
     </>
   );
   const links = (
     <>
-      <NavLink className="hover:text-blue-600">Add Lost & Found Item</NavLink>
-      <NavLink className="hover:text-blue-600">All Recovered Items</NavLink>
-      <NavLink className="hover:text-blue-600">My Items</NavLink>
+      <NavLink className="hover:text-blue-600" to="/AddItems">
+        Add Lost & Found Item
+      </NavLink>
+      <NavLink className="hover:text-blue-600" to="/AllItems">
+        All Recovered Items
+      </NavLink>
+      <NavLink className="hover:text-blue-600" to="/MyItems">
+        My Items
+      </NavLink>
     </>
   );
   return (
@@ -70,7 +78,7 @@ const Nav = () => {
         </div>
         {user ? (
           <>
-            <button onClick={handleSignOut} className="btn">
+            <button onClick={handleSignOut} className="btn btn-outline">
               Sign out
             </button>
           </>
