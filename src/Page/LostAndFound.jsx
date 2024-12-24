@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const LostAndFound = () => {
   const Items = useLoaderData();
@@ -27,12 +27,12 @@ const LostAndFound = () => {
               <h4 className="text-wrap p-4">{Item.location}</h4>
               <h4 className="p-4">{Item.Date}</h4>
               <div className="justify-end text-end">
-                {/* <Link
-              to={`/Item/${Item._id}`}
-              className="btn-link hover:text-blue-600 pr-3 text-black h-max"
-            >
-              Details Page
-            </Link> */}
+                <Link
+                  to={`/items/${Item._id}`}
+                  className="btn-link hover:text-blue-600 pr-3 text-black h-max"
+                >
+                  Details
+                </Link>
               </div>
             </div>
           </div>

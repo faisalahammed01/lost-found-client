@@ -13,6 +13,7 @@ import MyItems from "./Page/MyItems";
 import AllRecoveredItems from "./Page/AllRecoveredItems";
 import AddItems from "./Page/AddItems";
 import PrivatesRoute from "./Route/PrivatesRoute";
+import Details from "./Page/Details";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,16 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register></Register>,
+      },
+      {
+        path: "/items/:id",
+        element: (
+          <PrivatesRoute>
+            <Details></Details>
+          </PrivatesRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/items/${params.id}`),
       },
     ],
   },
