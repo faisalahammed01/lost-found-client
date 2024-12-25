@@ -1,17 +1,63 @@
 import { useLoaderData } from "react-router-dom";
+import swal from "sweetalert2";
 
 const Details = () => {
   const data = useLoaderData();
   const {
     PostType,
-    Title,
-    Category,
-    Thumbnail,
-    description,
     location,
     Contact,
     Date,
+    Thumbnail,
+    Category,
+    description,
+    Title,
   } = data;
+  const btnText = PostType === "Found" ? "This is Mine!" : "Found This!";
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+
+    const location = e.target.location.value;
+    const date = e.target.date.value;
+    const recoveredPersonInfo = e.target.recoveredPersonInfo.value;
+
+    const newData = {
+      location,
+      date,
+      recoveredPersonInfo,
+    };
+    console.log(newData);
+
+    // send data to the server and database
+    fetch("http://localhost:5000/AddRecovered", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          swal.fire({
+            title: "Success!",
+            text: " Recovered Items added successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+          e.target.reset();
+        }
+      });
+  };
+
+  const handleModalOpen = () => {
+    document.getElementById("my_modal_1").showModal();
+  };
+
+  const handleModalClose = () => {
+    document.getElementById("my_modal_1").close();
+  };
   return (
     <div className="card bg-base-100 max-w-[760px] shadow-xl mx-auto">
       <figure className="px-10 pt-10">
@@ -19,14 +65,74 @@ const Details = () => {
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">{PostType}</h2>
-        <p>{Title}</p>
-        <p> {location}</p>
-        <p> {Contact}</p>
-        <p>{Category}</p>
-        <p> {description}</p>
-        <p> {Date}</p>
+        <p>Title:{Title}</p>
+        <p>location: {location}</p>
+        <p>Contact: {Contact}</p>
+        <p>Category:{Category}</p>
+        <p> description:{description}</p>
+        <p> Date:{Date}</p>
         <div className="card-actions">
-          <button className="btn btn-info md:w-96">Ooooo </button>
+          {/* open-btn */}
+          <button className="btn btn-info md:w-96" onClick={handleModalOpen}>
+            {btnText}
+          </button>
+          {/* stacture */}
+          <dialog id="my_modal_1" className="modal">
+            <form onSubmit={handleAdd} className="modal-box">
+              <h3 className="font-bold text-lg">Recover Item Information</h3>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Recovered Location</span>
+                </label>
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Enter recovered location"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Recovered Date</span>
+                </label>
+                <input
+                  type="date"
+                  name="date"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Recovered Person Info</span>
+                </label>
+                <input
+                  type="text"
+                  name="recoveredPersonInfo"
+                  value="Logged-in User (read-only)"
+                  readOnly
+                  className="input input-bordered"
+                />
+              </div>
+
+              <div className="modal-action mt-4">
+                <button type="submit" className="btn btn-primary">
+                  Submit
+                </button>
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={handleModalClose}
+                >
+                  Close
+                </button>
+              </div>
+            </form>
+          </dialog>
         </div>
       </div>
     </div>
