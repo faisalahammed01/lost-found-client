@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
-import swal from "sweetalert2";
+import { toast, ToastContainer } from "react-toastify";
+import AuthContext from "../Context/AuthContext/AuthContext";
 
 const Details = () => {
+  const { user } = useContext(AuthContext);
   const data = useLoaderData();
   const {
     PostType,
@@ -20,12 +23,12 @@ const Details = () => {
 
     const location = e.target.location.value;
     const date = e.target.date.value;
-    const recoveredPersonInfo = e.target.recoveredPersonInfo.value;
+    const email = e.target.email.value;
 
     const newData = {
       location,
       date,
-      recoveredPersonInfo,
+      email,
     };
     console.log(newData);
 
@@ -40,12 +43,7 @@ const Details = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          swal.fire({
-            title: "Success!",
-            text: " Recovered Items added successfully",
-            icon: "success",
-            confirmButtonText: "Ok",
-          });
+          toast.success("Recovered Items added successfully");
           e.target.reset();
         }
       });
@@ -112,26 +110,27 @@ const Details = () => {
                 </label>
                 <input
                   type="text"
-                  name="recoveredPersonInfo"
-                  value="Logged-in User (read-only)"
+                  name="email"
+                  value={user.email}
                   readOnly
                   className="input input-bordered"
                 />
               </div>
 
-              <div className="modal-action mt-4">
-                <button type="submit" className="btn btn-primary">
+              <div className="modal-action mt-4 justify-between">
+                <button type="submit" className="btn btn-primary ml-40">
                   Submit
                 </button>
                 <button
                   type="button"
-                  className="btn"
+                  className="btn btn-circle "
                   onClick={handleModalClose}
                 >
-                  Close
+                  ❌
                 </button>
               </div>
             </form>
+            <ToastContainer />
           </dialog>
         </div>
       </div>

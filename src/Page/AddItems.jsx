@@ -1,49 +1,55 @@
 import swal from "sweetalert2";
-const handleAdd = (e) => {
-  e.preventDefault();
+import AuthContext from "../Context/AuthContext/AuthContext";
+import { useContext } from "react";
 
-  const PostType = e.target.PostType.value;
-  const Title = e.target.Title.value;
-  const Category = e.target.Category.value;
-  const Thumbnail = e.target.Thumbnail.value;
-  const description = e.target.description.value;
-  const location = e.target.location.value;
-  const Contact = e.target.Contact.value;
-  const Date = e.target.Date.value;
-
-  const newData = {
-    PostType,
-    Title,
-    Category,
-    Thumbnail,
-    description,
-    location,
-    Contact,
-    Date,
-  };
-
-  // send data to the server and database
-  fetch("http://localhost:5000/addItems", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(newData),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.insertedId) {
-        swal.fire({
-          title: "Success!",
-          text: "Items added successfully",
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
-        e.target.reset();
-      }
-    });
-};
 const AddItems = () => {
+  const { user } = useContext(AuthContext);
+  const handleAdd = (e) => {
+    e.preventDefault();
+
+    const PostType = e.target.PostType.value;
+    const Title = e.target.Title.value;
+    const Category = e.target.Category.value;
+    const Thumbnail = e.target.Thumbnail.value;
+    const description = e.target.description.value;
+    const location = e.target.location.value;
+    const Contact = e.target.Contact.value;
+    const Date = e.target.Date.value;
+
+    const newData = {
+      PostType,
+      Title,
+      Category,
+      Thumbnail,
+      description,
+      location,
+      Contact,
+      Date,
+      email: user?.email,
+      name: user?.displayName || "Unknown",
+    };
+
+    // send data server and database
+    fetch("http://localhost:5000/addItems", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          swal.fire({
+            title: "Success!",
+            text: "Items added successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+          e.target.reset();
+        }
+      });
+  };
   return (
     <div className="lg:w-3/4 mx-auto">
       <div className="text-center p-10">

@@ -1,5 +1,4 @@
 import { useLoaderData } from "react-router-dom";
-
 const AllRecoveredItems = () => {
   const datas = useLoaderData();
   return (
@@ -22,7 +21,7 @@ const AllRecoveredItems = () => {
               <th>No</th>
               <th>Date</th>
               <th>Location</th>
-              <th>Person-Info</th>
+              <th>Email</th>
             </tr>
           </thead>
           <tbody>
@@ -51,7 +50,7 @@ const AllRecoveredItems = () => {
 
                 <td>
                   {" "}
-                  <div className="text-xl">{data?.recoveredPersonInfo}</div>
+                  <div className="text-xl">{data?.email}</div>
                 </td>
               </tr>
             ))}
