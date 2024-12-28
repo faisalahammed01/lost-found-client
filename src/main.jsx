@@ -14,6 +14,7 @@ import AllRecoveredItems from "./Page/AllRecoveredItems";
 import AddItems from "./Page/AddItems";
 import PrivatesRoute from "./Route/PrivatesRoute";
 import Details from "./Page/Details";
+import Update from "./Page/Update";
 
 const router = createBrowserRouter([
   {
@@ -25,11 +26,13 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: () => fetch("http://localhost:5000/allItems/six"),
+        title: "Home",
       },
       {
         path: "/LostAndFound",
         element: <LostAndFound></LostAndFound>,
         loader: () => fetch("http://localhost:5000/allItems"),
+        title: "Lost & Found",
       },
       {
         path: "/MyItems",
@@ -38,6 +41,8 @@ const router = createBrowserRouter([
             <MyItems></MyItems>,
           </PrivatesRoute>
         ),
+        loader: () => fetch("http://localhost:5000/myItems"),
+        title: "My Items",
       },
       {
         path: "/AllItems",
@@ -47,6 +52,7 @@ const router = createBrowserRouter([
           </PrivatesRoute>
         ),
         loader: () => fetch("http://localhost:5000/RecoveredItems"),
+        title: "All Recovered Itemss",
       },
       {
         path: "/AddItems",
@@ -55,14 +61,17 @@ const router = createBrowserRouter([
             <AddItems></AddItems>,
           </PrivatesRoute>
         ),
+        title: "Add Lost & Found Item",
       },
       {
         path: "login",
         element: <Login></Login>,
+        title: "Login",
       },
       {
         path: "register",
         element: <Register></Register>,
+        title: "Register",
       },
       {
         path: "/items/:id",
@@ -73,6 +82,16 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/items/${params.id}`),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivatesRoute>
+            <Update></Update>
+          </PrivatesRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/myItems/${params.id}`),
       },
     ],
   },

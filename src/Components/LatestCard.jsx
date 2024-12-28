@@ -12,9 +12,18 @@ const LatestCard = ({ card }) => {
         <img className="max-h-[220px] rounded-lg" src={Thumbnail} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="text-xl p-4 ">{Title}</h2>
-        <h4 className="text-wrap p-4">{location}</h4>
-        <small className="p-4 font-bold">{Date}</small>
+        <h2 className="text-xl p-4 ">
+          <span className="font-bold">Title</span>
+          {Title}
+        </h2>
+        <h4 className="text-wrap p-4">
+          <span className="font-bold">Location</span>
+          {location}
+        </h4>
+        <small className="p-4 font-bold">
+          <span className="font-bold">Date</span>
+          {Date}
+        </small>
         <div className="flex justify-between">
           <div
             onClick={handleLostAndFound}

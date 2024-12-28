@@ -2,10 +2,48 @@ import { useContext, useEffect, useState } from "react";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import AuthContext from "../Context/AuthContext/AuthContext";
 import { GrUpdate } from "react-icons/gr";
+import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyItems = () => {
   const { user } = useContext(AuthContext);
   const [item, setItem] = useState([]);
+  // -------------delete---------------------------------
+  const Item = useLoaderData();
+  const [MyItem, SetItem] = useState(Item);
+  const handleUserDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        //   Delete from the database
+        fetch(`http://localhost:5000/myItems/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your item has been successfully deleted",
+                icon: "success",
+              });
+
+              const remainingItems = item.filter(
+                (singleItem) => singleItem._id !== id
+              );
+              setItem(remainingItems);
+            }
+          });
+      }
+    });
+  };
 
   useEffect(() => {
     if (user?.email) {
@@ -16,7 +54,7 @@ const MyItems = () => {
   }, [user?.email]);
   return (
     <div>
-      <h1 className="text-2xl font-bold text-center my-4">
+      <h1 className="text-xl font-bold text-center my-4">
         {item.length === 0 &&
           "You haven't added any posts yet. Start by posting your lost or found items and make it easier to track or recover them.  "}
       </h1>
@@ -72,12 +110,18 @@ const MyItems = () => {
                 </td>
                 <td>
                   <div className="text-xl flex items-center gap-5">
-                    <button className="text-red-500">
+                    <button
+                      onClick={() => handleUserDelete(items._id)}
+                      className="text-red-500"
+                    >
                       <MdOutlineDeleteOutline className="text-3xl"></MdOutlineDeleteOutline>
                     </button>
-                    <button className="text-blue-500 text-xl">
+                    <Link
+                      to={`/update/${items._id}`}
+                      className="text-blue-500 text-xl"
+                    >
                       <GrUpdate></GrUpdate>
-                    </button>
+                    </Link>
                   </div>
                 </td>
               </tr>

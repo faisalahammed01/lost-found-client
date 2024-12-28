@@ -1,13 +1,24 @@
-import swal from "sweetalert2";
-import AuthContext from "../Context/AuthContext/AuthContext";
-import { useContext, useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const AddItems = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  const { user } = useContext(AuthContext);
-  const handleAdd = (e) => {
+const Update = () => {
+  const data = useLoaderData();
+
+  const {
+    name,
+    email,
+    _id,
+    PostType,
+    Title,
+    Category,
+    Thumbnail,
+    description,
+    location,
+    Contact,
+    Date,
+  } = data;
+
+  const handleUpdate = (e) => {
     e.preventDefault();
 
     const PostType = e.target.PostType.value;
@@ -17,7 +28,7 @@ const AddItems = () => {
     const description = e.target.description.value;
     const location = e.target.location.value;
     const Contact = e.target.Contact.value;
-    const Date = startDate.toISOString().split("T")[0];
+    const Date = e.target.Date.value;
 
     const newData = {
       PostType,
@@ -28,13 +39,11 @@ const AddItems = () => {
       location,
       Contact,
       Date,
-      email: user?.email,
-      name: user?.displayName || "Unknown",
     };
 
-    // send data server and database
-    fetch("http://localhost:5000/addItems", {
-      method: "POST",
+    // send data to the server and database
+    fetch(`http://localhost:5000/myItems/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -42,34 +51,62 @@ const AddItems = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId) {
-          swal.fire({
+        console.log(data);
+        if (data.modifiedCount) {
+          console.log("successfully updated");
+          Swal.fire({
             title: "Success!",
-            text: "Items added successfully",
+            text: "Item updated successfully",
             icon: "success",
             confirmButtonText: "Ok",
           });
           e.target.reset();
-          setStartDate(new Date());
         }
       });
   };
   return (
     <div className="lg:w-3/4 mx-auto">
       <div className="text-center p-10">
-        <h1 className="text-5xl font-bold">Add Lost & Found Item</h1>
+        <h1 className="text-5xl font-bold">Update Lost & Found Item</h1>
         <p className="py-6">
           If you want to report a lost or found item, fill out the form and
-          click on the 'Add Post' button.
+          click on the 'Update Item' button.
         </p>
       </div>
       <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
-        <form onSubmit={handleAdd} className="card-body">
+        <form onSubmit={handleUpdate} className="card-body">
+          {/* Name-Email */}
+          <div className="flex flex-col lg:flex-row gap-5">
+            <div className="form-control flex-1">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                defaultValue={name}
+                readOnly
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control flex-1">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                defaultValue={email}
+                type="text"
+                readOnly
+                className="input input-bordered"
+                required
+              />
+            </div>
+          </div>
           {/* form first row */}
           <div className="flex flex-col lg:flex-row gap-5">
             <div className="form-control flex-1">
               <select
                 name="PostType"
+                defaultValue={PostType}
                 required
                 className="select select-info w-full max-w-xs mt-10"
               >
@@ -86,6 +123,7 @@ const AddItems = () => {
               </label>
               <input
                 type="text"
+                defaultValue={Category}
                 name="Category"
                 placeholder="e.g., pets, documents, gadgets"
                 className="input input-bordered"
@@ -100,6 +138,7 @@ const AddItems = () => {
                 <span className="label-text">Thumbnail</span>
               </label>
               <input
+                defaultValue={Thumbnail}
                 type="url"
                 name="Thumbnail"
                 placeholder="Image url"
@@ -112,6 +151,7 @@ const AddItems = () => {
                 <span className="label-text">Title</span>
               </label>
               <input
+                defaultValue={Title}
                 type="text"
                 name="Title"
                 placeholder="Title"
@@ -127,6 +167,7 @@ const AddItems = () => {
                 <span className="label-text">Description</span>
               </label>
               <input
+                defaultValue={description}
                 type="text"
                 name="description"
                 placeholder="Description"
@@ -139,6 +180,7 @@ const AddItems = () => {
                 <span className="label-text">Location</span>
               </label>
               <input
+                defaultValue={location}
                 type="text"
                 name="location"
                 placeholder="Location where the item was lost or found"
@@ -154,6 +196,7 @@ const AddItems = () => {
                 <span className="label-text">Contact Information</span>
               </label>
               <input
+                defaultValue={Contact}
                 type="text"
                 name="Contact"
                 placeholder="user details"
@@ -165,10 +208,12 @@ const AddItems = () => {
               <label className="label">
                 <span className="label-text">Date</span>
               </label>
-              <DatePicker
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                className="input input-bordered w-full"
+              <input
+                defaultValue={Date}
+                type="date"
+                name="Date"
+                placeholder="Date"
+                className="input input-bordered"
                 required
               />
             </div>
@@ -176,7 +221,7 @@ const AddItems = () => {
 
           <div className="form-control mt-6">
             <button className="btn btn-outline text-white font-bold bg-blue-500">
-              Add Post
+              Update Item
             </button>
           </div>
         </form>
@@ -185,4 +230,4 @@ const AddItems = () => {
   );
 };
 
-export default AddItems;
+export default Update;

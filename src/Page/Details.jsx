@@ -1,16 +1,19 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import AuthContext from "../Context/AuthContext/AuthContext";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Details = () => {
+  const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
   const data = useLoaderData();
   const {
     PostType,
     location,
     Contact,
-    Date,
+    Date: postDate,
     Thumbnail,
     Category,
     description,
@@ -22,12 +25,12 @@ const Details = () => {
     e.preventDefault();
 
     const location = e.target.location.value;
-    const date = e.target.date.value;
+    const recoveredDate = startDate.toISOString().split("T")[0];
     const email = e.target.email.value;
 
     const newData = {
       location,
-      date,
+      date: recoveredDate,
       email,
     };
     console.log(newData);
@@ -45,6 +48,7 @@ const Details = () => {
         if (data.insertedId) {
           toast.success("Recovered Items added successfully");
           e.target.reset();
+          setStartDate(new Date());
         }
       });
   };
@@ -68,7 +72,7 @@ const Details = () => {
         <p>Contact: {Contact}</p>
         <p>Category:{Category}</p>
         <p> description:{description}</p>
-        <p> Date:{Date}</p>
+        <p> Date:{postDate}</p>
         <div className="card-actions">
           {/* open-btn */}
           <button className="btn btn-info md:w-96" onClick={handleModalOpen}>
@@ -96,10 +100,11 @@ const Details = () => {
                 <label className="label">
                   <span className="label-text">Recovered Date</span>
                 </label>
-                <input
-                  type="date"
-                  name="date"
-                  className="input input-bordered"
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  dateFormat="yyyy-MM-dd"
+                  className="input input-bordered w-full"
                   required
                 />
               </div>
@@ -118,7 +123,7 @@ const Details = () => {
               </div>
 
               <div className="modal-action mt-4 justify-between">
-                <button type="submit" className="btn btn-primary ml-40">
+                <button type="submit" className="btn btn-outline ml-40">
                   Submit
                 </button>
                 <button
