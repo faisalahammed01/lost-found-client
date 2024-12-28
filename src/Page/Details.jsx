@@ -33,10 +33,10 @@ const Details = () => {
       date: recoveredDate,
       email,
     };
-    console.log(newData);
+    // console.log(newData);
 
     // send data to the server and database
-    fetch("http://localhost:5000/AddRecovered", {
+    fetch("https://lost-found-server-eight.vercel.app/AddRecovered", {
       method: "POST",
       headers: {
         "content-type": "application/json",

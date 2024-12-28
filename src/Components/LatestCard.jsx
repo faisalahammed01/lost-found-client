@@ -27,14 +27,14 @@ const LatestCard = ({ card }) => {
         <div className="flex justify-between">
           <div
             onClick={handleLostAndFound}
-            className="justify-start text-start font-bold text-black hover:text-blue-600 text-lg"
+            className="btn btn-outline justify-start text-start font-bold text-black hover:text-white text-lg"
           >
             See All
           </div>
           <div className="justify-end text-end">
             <Link
               to={`/items/${card._id}`}
-              className="text-lg font-bold text-black hover:text-blue-600 pr-3 h-max"
+              className=" btn btn-outline text-lg font-bold text-black hover:text-white pr-3 h-max"
             >
               Details
             </Link>

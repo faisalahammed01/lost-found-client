@@ -25,7 +25,7 @@ const LostAndFound = () => {
       </h1>
       <div className="divider divider-neutral mx-auto w-40"></div>
       {/* search */}
-      <div className="justify-center text-center mt-5">
+      <div className="justify-center text-center mt-5 mb-7">
         <input
           value={search}
           onChange={handleSearch}
@@ -42,7 +42,7 @@ const LostAndFound = () => {
           >
             <figure>
               <img
-                className="max-h-[220px] rounded-lg"
+                className="max-h-[170px] rounded-lg"
                 src={Item.Thumbnail}
                 alt="Items"
               />
@@ -61,7 +61,7 @@ const LostAndFound = () => {
               <div className="justify-end text-end">
                 <Link
                   to={`/items/${Item._id}`}
-                  className="btn-link hover:text-blue-600 pr-3 text-black h-max"
+                  className="btn btn-outline hover:text-white pr-3 text-black h-max"
                 >
                   Details
                 </Link>

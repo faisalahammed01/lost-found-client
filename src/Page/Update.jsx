@@ -42,7 +42,7 @@ const Update = () => {
     };
 
     // send data to the server and database
-    fetch(`http://localhost:5000/myItems/${_id}`, {
+    fetch(`https://lost-found-server-eight.vercel.app/myItems/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -51,9 +51,9 @@ const Update = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount) {
-          console.log("successfully updated");
+          // console.log("successfully updated");
           Swal.fire({
             title: "Success!",
             text: "Item updated successfully",
