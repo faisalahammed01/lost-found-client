@@ -51,7 +51,7 @@ const Home = () => {
       {/* Extra-part-1 */}
       <ExtraPartOne></ExtraPartOne>
       {/* Extra-part-two */}
-      <ExtraPartTwo></ExtraPartTwo>
+      {/* <ExtraPartTwo></ExtraPartTwo> */}
     </div>
   );
 };
