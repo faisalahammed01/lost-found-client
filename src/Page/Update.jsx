@@ -42,7 +42,7 @@ const Update = () => {
     };
 
     // send data to the server and database
-    fetch(`https://lost-found-server-eight.vercel.app/myItems/${_id}`, {
+    fetch(`http://localhost:5000/myItems/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -220,7 +220,7 @@ const Update = () => {
           </div>
 
           <div className="form-control mt-6">
-            <button className="btn btn-outline text-white font-bold bg-blue-500">
+            <button className="btn btn-neutral bg-black glass text-white font-bold ">
               Update Item
             </button>
           </div>

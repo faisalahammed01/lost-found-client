@@ -25,15 +25,13 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () =>
-          fetch("https://lost-found-server-eight.vercel.app/allItems/six"),
+        loader: () => fetch("http://localhost:5000/allItems/six"),
         title: "Home",
       },
       {
         path: "/LostAndFound",
         element: <LostAndFound></LostAndFound>,
-        loader: () =>
-          fetch("https://lost-found-server-eight.vercel.app/allItems"),
+        loader: () => fetch("http://localhost:5000/allItems"),
         title: "Lost & Found",
       },
       {
@@ -43,8 +41,7 @@ const router = createBrowserRouter([
             <MyItems></MyItems>,
           </PrivatesRoute>
         ),
-        loader: () =>
-          fetch("https://lost-found-server-eight.vercel.app/myItems"),
+        loader: () => fetch("http://localhost:5000/myItems"),
         title: "My Items",
       },
       {
@@ -54,8 +51,7 @@ const router = createBrowserRouter([
             <AllRecoveredItems></AllRecoveredItems>,
           </PrivatesRoute>
         ),
-        loader: () =>
-          fetch("https://lost-found-server-eight.vercel.app/RecoveredItems"),
+        loader: () => fetch("http://localhost:5000/RecoveredItems"),
         title: "All Recovered Itemss",
       },
       {
@@ -85,9 +81,7 @@ const router = createBrowserRouter([
           </PrivatesRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://lost-found-server-eight.vercel.app/items/${params.id}`
-          ),
+          fetch(`http://localhost:5000/items/${params.id}`),
       },
       {
         path: "/update/:id",
@@ -97,9 +91,7 @@ const router = createBrowserRouter([
           </PrivatesRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://lost-found-server-eight.vercel.app/myItems/${params.id}`
-          ),
+          fetch(`http://localhost:5000/myItems/${params.id}`),
       },
     ],
   },

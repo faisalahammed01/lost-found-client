@@ -16,10 +16,10 @@ const AllRecoveredItems = () => {
       {/* -------------------------------------BTN------------------------------------ */}
       <div className="text-center my-6 items-center justify-center">
         <button className="" onClick={() => setTable(true)}>
-          <MdGridView className="size-9 mr-3 hover:bg-blue-200"></MdGridView>
+          <MdGridView className="size-9 mr-3 hover:text-red-950"></MdGridView>
         </button>
         <button className="" onClick={() => setTable(false)}>
-          <TfiViewListAlt className="size-7 ml-3 hover:bg-blue-200"></TfiViewListAlt>
+          <TfiViewListAlt className="size-7 ml-3 hover:text-red-950"></TfiViewListAlt>
         </button>
       </div>
 
@@ -81,12 +81,14 @@ const AllRecoveredItems = () => {
           {datas.map((data, i) => (
             <div
               key={data._id}
-              className="card w-64 md:w-96 shadow-lg rounded-lg p-4"
+              className="card w-64 md:w-96 bg-black glass shadow-lg rounded-lg p-4"
             >
-              <h2 className="text-lg font-bold mb-2">Item {i + 1}</h2>
-              <p>Date: {data?.date}</p>
-              <p>Location: {data?.location}</p>
-              <p>Email: {data?.email}</p>
+              <h2 className="text-lg font-bold text-white mb-2">
+                Item {i + 1}
+              </h2>
+              <p className="text-white">Date: {data?.date}</p>
+              <p className="text-white">Location: {data?.location}</p>
+              <p className="text-white">Email: {data?.email}</p>
             </div>
           ))}
         </div>

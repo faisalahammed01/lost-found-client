@@ -36,7 +36,7 @@ const Details = () => {
     // console.log(newData);
 
     // send data to the server and database
-    fetch("https://lost-found-server-eight.vercel.app/AddRecovered", {
+    fetch("http://localhost:5000/AddRecovered", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -75,7 +75,10 @@ const Details = () => {
         <p> Date:{postDate}</p>
         <div className="card-actions">
           {/* open-btn */}
-          <button className="btn btn-info md:w-96" onClick={handleModalOpen}>
+          <button
+            className="btn btn-neutral bg-black glass text-white md:w-96"
+            onClick={handleModalOpen}
+          >
             {btnText}
           </button>
           {/* stacture */}
@@ -123,7 +126,10 @@ const Details = () => {
               </div>
 
               <div className="modal-action mt-4 justify-between">
-                <button type="submit" className="btn btn-outline ml-40">
+                <button
+                  type="submit"
+                  className="btn btn-outline bg-black glass text-white ml-40"
+                >
                   Submit
                 </button>
                 <button

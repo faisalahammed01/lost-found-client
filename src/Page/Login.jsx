@@ -7,10 +7,6 @@ import SocialLogin from "../Components/SocialLogin";
 
 const Login = () => {
   const { singInUser } = useContext(AuthContext);
-  // const location = useLocation();
-  // const navigate = useNavigate();
-  // console.log("in signIn page", location);
-  // const from = location.state || "/";
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -22,7 +18,6 @@ const Login = () => {
     singInUser(email, password)
       .then((result) => {
         console.log("sign in", result.user);
-        // navigate(from);
       })
       .catch((error) => {
         console.log(error);

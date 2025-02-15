@@ -97,8 +97,8 @@ const Register = () => {
             <div className="form-control mt-6">
               <button className="btn btn-neutral">Register</button>
             </div>
-            <p className="text-start mt-4">
-              Have an account?{" "}
+            <p className="text-start mt-4 gap-x-2">
+              Have an account?
               <Link className="text-red-600" to="/login">
                 Log in now!
               </Link>

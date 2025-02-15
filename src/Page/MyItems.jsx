@@ -22,8 +22,8 @@ const MyItems = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        //   Delete from the database
-        fetch(`https://lost-found-server-eight.vercel.app/myItems/${id}`, {
+        //   ----------Delete from the database--------
+        fetch(`http://localhost:5000/myItems/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -47,9 +47,7 @@ const MyItems = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(
-        `https://lost-found-server-eight.vercel.app/myItem?email=${user.email}`
-      )
+      fetch(`http://localhost:5000/myItem?email=${user.email}`)
         .then((res) => res.json())
         .then((items) => setItem(items));
     }

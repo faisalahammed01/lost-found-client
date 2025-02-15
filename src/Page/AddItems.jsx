@@ -33,7 +33,7 @@ const AddItems = () => {
     };
 
     // send data server and database
-    fetch("https://lost-found-server-eight.vercel.app/addItems", {
+    fetch("http://localhost:5000/addItems", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -175,7 +175,7 @@ const AddItems = () => {
           </div>
 
           <div className="form-control mt-6">
-            <button className="btn btn-outline text-white font-bold bg-blue-500">
+            <button className="btn glass bg-black btn-outline text-white font-bold ">
               Add Post
             </button>
           </div>

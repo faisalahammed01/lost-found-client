@@ -20,10 +20,6 @@ const LostAndFound = () => {
 
   return (
     <div>
-      <h1 className="text-center font-bold text-xl text-gray-600">
-        Lost-And-Found Item-{filteredItems.length}
-      </h1>
-      <div className="divider divider-neutral mx-auto w-40"></div>
       {/* search */}
       <div className="justify-center text-center mt-5 mb-7">
         <input
@@ -31,14 +27,18 @@ const LostAndFound = () => {
           onChange={handleSearch}
           type="text"
           placeholder="Search by title or location..."
-          className="input input-bordered input-error w-full max-w-2xl"
+          className="input input-bordered input-lg border-4 border-black w-full max-w-2xl"
         />
       </div>
+      <h1 className="text-center font-bold text-xl text-gray-600">
+        Lost-And-Found Item-{filteredItems.length}
+      </h1>
+      <div className="divider divider-neutral mx-auto w-40"></div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 mx-auto">
         {filteredItems.map((Item) => (
           <div
             key={Item._id}
-            className="card w-64 md:w-96 shadow rounded-none max-h-[450px] mb-5"
+            className="card shadow-xl w-64 md:w-96  rounded-none max-h-[450px] border-2 border-black mb-5"
           >
             <figure>
               <img
@@ -61,7 +61,7 @@ const LostAndFound = () => {
               <div className="justify-end text-end">
                 <Link
                   to={`/items/${Item._id}`}
-                  className="btn btn-outline hover:text-white pr-3 text-black h-max"
+                  className="btn btn-outline hover:text-white pr-3  btn-neutral  text-white md:w-80 bg-gray-900 glass h-max"
                 >
                   Details
                 </Link>

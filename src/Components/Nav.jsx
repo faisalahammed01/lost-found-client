@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../Context/AuthContext/AuthContext";
+import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 
 const Nav = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -16,30 +17,30 @@ const Nav = () => {
   };
   const link = (
     <>
-      <NavLink className="hover:text-blue-600" to="/">
+      <NavLink className=" text-white font-bold" to="/">
         Home
       </NavLink>
-      <NavLink className="hover:text-blue-600 " to="/LostAndFound">
+      <NavLink className=" text-white font-bold " to="/LostAndFound">
         Lost & Found Items
       </NavLink>
     </>
   );
   const links = (
     <>
-      <NavLink className="hover:text-blue-600" to="/AddItems">
+      <NavLink className=" text-black font-bold" to="/AddItems">
         Add Lost & Found Item
       </NavLink>
-      <NavLink className="hover:text-blue-600" to="/AllItems">
+      <NavLink className=" text-black font-bold my-4" to="/AllItems">
         All Recovered Items
       </NavLink>
-      <NavLink className="hover:text-blue-600" to="/MyItems">
+      <NavLink className=" text-black font-bold" to="/MyItems">
         My Items
       </NavLink>
     </>
   );
   return (
-    <div className="navbar bg-base-100 container mx-auto">
-      <div className="flex-1">
+    <div className="navbar  container glass bg-black mx-auto">
+      {/* <div className="flex-1">
         <div>
           <img
             className="size-14"
@@ -47,13 +48,13 @@ const Nav = () => {
             alt=""
           />
         </div>
-        <a className="font-bold ">
-          Lost <span className="text-[#415B74]">&</span> Found{" "}
+        <a className="font-bold text-white hidden sm:block">
+          Lost <span className="text-white">&</span> Found{" "}
         </a>
         <div className="flex flex-1 justify-center items-center space-x-4 whitespace-nowrap">
           {link}
         </div>
-      </div>
+      </div> */}
 
       <div className="flex-none">
         <div className="dropdown dropdown-end">
@@ -62,11 +63,10 @@ const Nav = () => {
             role="button"
             className="btn btn-ghost btn-circle avatar"
           >
-            <div className="w-10 rounded-full">
-              <img
-                alt="Profile"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-              />
+            <div className="w-10 rounded-full text-white size-11">
+              <span>
+                {/* <MdOutlineArrowDropDownCircle className="size-8 mt-2"></MdOutlineArrowDropDownCircle> */}
+              </span>
             </div>
           </div>
           <ul
@@ -78,14 +78,14 @@ const Nav = () => {
         </div>
         {user ? (
           <>
-            <button onClick={handleSignOut} className="btn btn-outline">
+            <button onClick={handleSignOut} className="font-bold text-white ">
               Sign out
             </button>
           </>
         ) : (
           <>
             <Link to="/login">
-              <button className="btn btn-outline">LogIn</button>
+              <button className="font-bold text-white ">Login</button>
             </Link>
           </>
         )}

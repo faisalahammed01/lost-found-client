@@ -1,19 +1,19 @@
 const Footer = () => {
   return (
-    <footer className="footer bg-[#8CBDCE] text-neutral-content p-10 border-y-2 border-black">
+    <footer className="footer  bg-black text-neutral-content p-10 border-y-2 border-black">
       <aside>
         <div>
-          <img
+          {/* <img
             className="size-24"
             src="https://i.ibb.co.com/W0GhLtS/found-logo-removebg-preview.png"
             alt=""
-          />
+          /> */}
         </div>
-        <p className="text-black text-xl">
+        <p className="text-white text-xl">
           Find What You’ve Lost, Share What You’ve Found.
           <br />
           Your Trusted{" "}
-          <span className="font-bold text-black">Lost & Found</span> Partner.
+          <span className="font-bold text-white">Lost & Found</span> Partner.
         </p>
       </aside>
       <nav>
@@ -61,3 +61,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// server link-https://lost-found-server-eight.vercel.app
