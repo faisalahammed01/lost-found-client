@@ -5,7 +5,7 @@ const ExtraPartOne = () => {
     <div className="bg-base-100">
       <h1 className="text-2xl font-bold text-center pt-4">
         Lost Something? Let Us Help You Find It
-        <div className="divider divider-accent mx-auto w-28"></div>
+        <div className="divider divider-neutral mx-auto w-28"></div>
       </h1>
       <Fade>
         {" "}
@@ -35,7 +35,7 @@ const ExtraPartOne = () => {
               with your belongings.
             </p>
           </Fade>
-          <div className="divider divider-accent mx-auto w-40"></div>
+          <div className="divider divider-neutral mx-auto w-40"></div>
         </div>
         <div className="w-3/6">
           <img
@@ -70,7 +70,7 @@ const ExtraPartOne = () => {
               first step toward finding what’s yours
             </p>
           </Fade>
-          <div className="divider divider-accent mx-auto w-40"></div>
+          <div className="divider divider-neutral mx-auto w-40"></div>
         </div>
       </div>
       {/* 3 */}
@@ -91,7 +91,7 @@ const ExtraPartOne = () => {
               everyone.
             </p>
           </Fade>
-          <div className="divider divider-accent mx-auto w-40"></div>
+          <div className="divider divider-neutral mx-auto w-40"></div>
         </div>
         <div className="w-3/6">
           <img

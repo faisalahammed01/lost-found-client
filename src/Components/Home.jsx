@@ -1,6 +1,5 @@
 import React from "react";
 import ExtraPartOne from "../Page/ExtraPartOne";
-import ExtraPartTwo from "../Page/ExtraPartTwo";
 import LatestCard from "./LatestCard";
 import { useLoaderData } from "react-router-dom";
 
