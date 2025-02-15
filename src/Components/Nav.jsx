@@ -40,7 +40,7 @@ const Nav = () => {
   );
   return (
     <div className="navbar  container glass bg-black mx-auto">
-      {/* <div className="flex-1">
+      <div className="flex-1">
         <div>
           <img
             className="size-14"
@@ -54,7 +54,7 @@ const Nav = () => {
         <div className="flex flex-1 justify-center items-center space-x-4 whitespace-nowrap">
           {link}
         </div>
-      </div> */}
+      </div>
 
       <div className="flex-none">
         <div className="dropdown dropdown-end">
@@ -65,7 +65,7 @@ const Nav = () => {
           >
             <div className="w-10 rounded-full text-white size-11">
               <span>
-                {/* <MdOutlineArrowDropDownCircle className="size-8 mt-2"></MdOutlineArrowDropDownCircle> */}
+                <MdOutlineArrowDropDownCircle className="size-8 mt-2"></MdOutlineArrowDropDownCircle>
               </span>
             </div>
           </div>
