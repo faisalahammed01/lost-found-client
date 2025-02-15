@@ -1,13 +1,13 @@
 const Footer = () => {
   return (
-    <footer className="footer  bg-black text-neutral-content p-10 border-y-2 border-black">
+    <footer className="footer glass  bg-black text-neutral-content p-10 border-y-2 border-black">
       <aside>
         <div>
-          {/* <img
+          <img
             className="size-24"
             src="https://i.ibb.co.com/W0GhLtS/found-logo-removebg-preview.png"
             alt=""
-          /> */}
+          />
         </div>
         <p className="text-white text-xl">
           Find What You’ve Lost, Share What You’ve Found.
