@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
       {/* banner */}
-      <div className="flex flex-col md:flex-row items-center justify-center w-full mb-6 container mx-auto border-2  mt-3 border-black rounded-xl bg-gray-50 shadow-lg p-6">
+      <div className="flex flex-col md:flex-row items-center justify-center w-full mt-3 mb-6 container mx-auto border-2  border-black rounded-xl bg-gray-50 shadow-lg p-6">
         {/* Text Section */}
         <div className="md:w-1/2 text-center md:text-left p-6">
           <h1 className="text-4xl font-extrabold text-black mb-4">

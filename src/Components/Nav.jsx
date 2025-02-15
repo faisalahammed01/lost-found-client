@@ -39,7 +39,7 @@ const Nav = () => {
     </>
   );
   return (
-    <div className="navbar  container glass bg-black mx-auto">
+    <div className="navbar bg-black glass container mx-auto ">
       <div className="flex-1">
         <div>
           <img
