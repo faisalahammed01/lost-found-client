@@ -33,7 +33,7 @@ const AddItems = () => {
     };
 
     // send data server and database
-    fetch("http://localhost:5000/addItems", {
+    fetch("https://lost-found-server-eight.vercel.app/addItems", {
       method: "POST",
       headers: {
         "content-type": "application/json",

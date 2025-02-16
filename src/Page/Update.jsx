@@ -42,7 +42,7 @@ const Update = () => {
     };
 
     // send data to the server and database
-    fetch(`http://localhost:5000/myItems/${_id}`, {
+    fetch(`https://lost-found-server-eight.vercel.app/myItems/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
