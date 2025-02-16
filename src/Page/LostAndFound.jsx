@@ -38,7 +38,7 @@ const LostAndFound = () => {
         {filteredItems.map((Item) => (
           <div
             key={Item._id}
-            className="card shadow-xl w-64 md:w-96  rounded-none max-h-[450px] border-2 border-black mb-5"
+            className="card container mx-auto shadow-xl w-64 md:w-96  rounded-none max-h-[450px] border-2 border-black mb-5"
           >
             <figure>
               <img

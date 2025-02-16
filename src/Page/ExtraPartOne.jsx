@@ -2,7 +2,7 @@ import { Fade } from "react-awesome-reveal";
 
 const ExtraPartOne = () => {
   return (
-    <div className="bg-base-100">
+    <div className="bg-base-100 container mx-auto">
       <h1 className="text-2xl font-bold text-center pt-4">
         Lost Something? Let Us Help You Find It
         <div className="divider divider-neutral mx-auto w-28"></div>

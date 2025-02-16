@@ -7,7 +7,7 @@ const LatestCard = ({ card }) => {
   };
   const { Thumbnail, Title, location, Date } = card;
   return (
-    <div className="card  w-64 border-2 border-black shadow-xl md:w-96  rounded-none ">
+    <div className="card container mx-auto w-64 border-2 border-black shadow-xl md:w-96  rounded-none ">
       <figure>
         <img className="max-h-[220px] rounded-lg" src={Thumbnail} alt="Shoes" />
       </figure>
