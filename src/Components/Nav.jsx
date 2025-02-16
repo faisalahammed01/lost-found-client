@@ -27,13 +27,13 @@ const Nav = () => {
   );
   const links = (
     <>
-      <NavLink className=" text-black font-bold" to="/AddItems">
+      <NavLink className=" text-white font-bold" to="/AddItems">
         Add Lost & Found Item
       </NavLink>
-      <NavLink className=" text-black font-bold my-4" to="/AllItems">
+      <NavLink className=" text-white font-bold my-4" to="/AllItems">
         All Recovered Items
       </NavLink>
-      <NavLink className=" text-black font-bold" to="/MyItems">
+      <NavLink className=" text-white font-bold" to="/MyItems">
         My Items
       </NavLink>
     </>
@@ -71,7 +71,7 @@ const Nav = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-black glass  rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             {links}
           </ul>
