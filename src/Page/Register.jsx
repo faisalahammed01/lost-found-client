@@ -1,11 +1,8 @@
-import Lottie from "lottie-react";
 import React, { useContext } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import swal from "sweetalert";
-import registerLottieData from "../assets/Lottie/register - 1734901651450.json";
 import { Link } from "react-router-dom";
 import AuthContext from "../Context/AuthContext/AuthContext";
-
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const handleRegister = (e) => {
@@ -14,7 +11,6 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const photoUrl = form.photoUrl.value;
     const passwordVerification = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordVerification.test(password)) {
       toast.error(
@@ -40,11 +36,10 @@ const Register = () => {
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left w-96">
-          <Lottie animationData={registerLottieData}></Lottie>
-        </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <h1 className="ml-8 mt-4 text-5xl font-bold">Register now!</h1>
+        <div className="card bg-base-100 w-72 md:w-full  max-w-sm shrink-0 shadow-2xl">
+          <h1 className="ml-8 mt-4 text-3xl md:text-5xl font-bold">
+            Register now!
+          </h1>
           <form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -66,18 +61,6 @@ const Register = () => {
                 type="email"
                 name="email"
                 placeholder="email"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">PhotoUrl</span>
-              </label>
-              <input
-                type="text"
-                name="photoUrl"
-                placeholder="PhotoUrl"
                 className="input input-bordered"
                 required
               />

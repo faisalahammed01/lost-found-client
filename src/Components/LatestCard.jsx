@@ -9,7 +9,11 @@ const LatestCard = ({ card }) => {
   return (
     <div className="card container mx-auto w-64 border-2 border-black shadow-xl md:w-96  rounded-none ">
       <figure>
-        <img className="max-h-[220px] rounded-lg" src={Thumbnail} alt="Shoes" />
+        <img
+          className="max-h-[290px] md:max-h-[220px] rounded-lg"
+          src={Thumbnail}
+          alt="items"
+        />
       </figure>
       <div className="card-body">
         <h2 className="text-xl p-2 ">

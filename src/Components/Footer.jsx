@@ -61,5 +61,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-// server link-
